@@ -1,0 +1,39 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+body {
+    background-image: url("../images/connect_@2X.png");
+}
+
+#title h1 {
+    color: #4aaaa5;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:48px;
+    font-display: bolder;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#rules {
+    background: #ceebfb;
+    padding: 7px;
+}
+ .counters {
+    background: #f0eceb;
+    border-top: solid 1px #aa0078 !important;
+    border-bottom: solid 1px #aa0078 !important;
+    padding-top: 10px;
+ }
+
+ #alert-holder {
+    font-weight: bold; 
+    margin: 5px auto;
+    text-align: center;
+ }
+
+ .crystal-images img {
+     width: 100%;
+     /*add media query for smallest screens?*/
+    
+ }

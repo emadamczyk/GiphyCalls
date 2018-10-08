@@ -17,14 +17,21 @@
             <h1>Pick a topic and get some fun gifs</h1>
         </div>
         <div class="wrapper">
-            <div class="row gifs col-md-6">
+            <div id="gif-buttons"></div>
+            <form id = "giphy-form">
+                <label for="giphy-input">Add a topic</label>
+                <input type="text" id="giphy-input">
+                <input id="add-giphy" type="submit" value="Add a topic">
+
+            </form>
+            <div class="row gifs-view col-md-6">
                 
             </div>
-            <div class="row gifs col-md-6">
+            <div class="row gifs-view col-md-6">
                 
             </div>
 
-            <div class="row gifs col-md-6">
+            <div class="row gifs-view col-md-6">
                 
             </div>
             <div class="row gifs col-md-6">
@@ -33,8 +40,18 @@
 
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=bikes&api_key=r5ZdfHEr7DRl96jWYp47eXbkjeMiiH8f&limit=10"
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
+        console.log(response);
+    });
+</script>
 
-<script type="text/javascript" src="assets/javascript/game.js"></script>
+<!--<script type="text/javascript" src="assets/javascript/app.js"></script>-->
 </body>
 
 </html>
