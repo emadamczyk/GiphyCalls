@@ -1,27 +1,27 @@
-var queryURL = "http://api.giphy.com/v1/gifs/search?q=bikes&api_key=r5ZdfHEr7DRl96jWYp47eXbkjeMiiH8f&limit=10"
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function(data) {
-        console.log(data);
-
 var topics = ["Bicycles", "Unicycles", "Tandems", "BMX", "Tricycles"];
 
 function displayGifs() {
     var gifs = $(this).attr("data-name");
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gifs + "&api_key=r5ZdfHEr7DRl96jWYp47eXbkjeMiiH8f&limit=10"
+    var resultNumber = 10;
+    console.log(gifs);
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gifs + "&api_key=r5ZdfHEr7DRl96jWYp47eXbkjeMiiH8f&limit=" + resultNumber;
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function(data) {
-        console.log(data);
+    }).then(function(response) {
+        //console.log(response);
+        var gifResults = response.data;
+        console.log(gifResults);
+        for (var i = 0; i < gifResults; i++){
+
+        }
         
         var gifImage = $("<img>");
+        var gifURL = gifResults[i].images.fixed_height_small.url
+        gifImage.attr("src", gifURL);
+        //gifImage.attr("alt", "bike image");
 
-        gifImage.attr("src", queryURL);
-        gifImage.attr("alt", "bike image");
-
-        $(".gifs-view").prepend(gifImage);
+        $("#gifs-view").prepend(gifImage);
 
     });
 }
@@ -38,7 +38,7 @@ function renderButtons() {
       // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
       var a = $("<button>");
       // Adds a class of movie to our button
-      a.addClass("newTopic");
+      a.addClass("gifs");
       // Added a data-attribute
       a.attr("data-name", topics[i]);
       // Provided the initial button text
@@ -48,7 +48,19 @@ function renderButtons() {
     }
   }
 
-
+  $("#add-giphy").on("click", function() {
+    event.preventDefault();
+    var gifs = $("#giphy-input").val().trim();
+    // only add button if new topic
+    if (!topics.includes(gifs)) {
+        topics.push(gifs);
+    };
+    
+    renderButtons();
+  });
+  
+  $(document).on("click", ".gifs", displayGifs);
+  renderButtons();
 
 //var getGiphy = $.get("http://api.giphy.com/v1/gifs/search?q=bicycles&api_key=r5ZdfHEr7DRl96jWYp47eXbkjeMiiH8f&limit=10");
 //getGiphy.done(function(data) { console.log("success got data", data); });

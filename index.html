@@ -19,12 +19,12 @@
         <div class="wrapper">
             <div id="gif-buttons"></div>
             <form id = "giphy-form">
-                <label for="giphy-input">Add a topic</label>
+                <label for="giphy-input"></label>
                 <input type="text" id="giphy-input">
                 <input id="add-giphy" type="submit" value="Add a topic">
 
             </form>
-            <div class="row gifs-view col-md-6">
+            <div class="row col-md-6" id="gifs-view">
                 
             </div>
             <div class="row gifs-view col-md-6">
@@ -40,7 +40,8 @@
 
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- TESTING API CALLS-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=bikes&api_key=r5ZdfHEr7DRl96jWYp47eXbkjeMiiH8f&limit=10"
     $.ajax({
@@ -49,9 +50,9 @@
     }).then(function(response) {
         console.log(response);
     });
-</script>
+</script>-->
 
-<!--<script type="text/javascript" src="assets/javascript/app.js"></script>-->
+<script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 
 </html>
