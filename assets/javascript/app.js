@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 var topics = ["Bicycles", "Unicycles", "Tandems", "BMX", "Tricycles"];
 
 function displayGifs() {
@@ -72,3 +74,4 @@ renderButtons();
 
 //var getGiphy = $.get("http://api.giphy.com/v1/gifs/search?q=bicycles&api_key=r5ZdfHEr7DRl96jWYp47eXbkjeMiiH8f&limit=10");
 //getGiphy.done(function(data) { console.log("success got data", data); });
+});
