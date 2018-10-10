@@ -25,11 +25,19 @@ function displayGifs() {
       var gifDiv = $("<div>");
       var gifImage = $("<img>");
       var gifURL = gifResults[i].images.fixed_height_small_still.url;
+      var gifAniURL = gifResults[i].images.fixed_height_small.url;
+      var gifRating = gifResults[i].rating;
+      gifImage.attr("data-still", gifURL);
+      gifImage.attr("data-animate", gifAniURL);
+      gifImage.attr("data-state", "still");
       gifImage.attr("src", gifURL);
+      gifImage.addClass("gifView");
+      gifDiv.addClass("gifBorder");
       //gifImage.attr("alt", "bike image");
       var ratingDiv = $("<div>");
-      ratingDiv.html(gifResults[i].rating);
-      console.log(gifResults[i].rating);
+      ratingDiv.addClass("rating");
+      ratingDiv.text("Giphy Rating: " + gifRating);
+      console.log(gifRating);
       gifDiv.append(gifImage, ratingDiv);  
       $("#gifs-view").prepend(gifDiv);
     }
@@ -71,6 +79,21 @@ $("#add-giphy").on("click", function() {
 
 $(document).on("click", ".gifs", displayGifs);
 renderButtons();
+
+$(".gifView").on("click", function() {
+    var state = $(this).attr("data-state");
+    if (state === "still") {
+        console.log("state is still");
+        $(this).attr("src", gifAniURL);
+        //$(this).attr("data-state", "animate");
+    } else {
+        console.log("state is animate");
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("src", "data-state", "still");
+    }
+
+});    
+
 
 //var getGiphy = $.get("http://api.giphy.com/v1/gifs/search?q=bicycles&api_key=r5ZdfHEr7DRl96jWYp47eXbkjeMiiH8f&limit=10");
 //getGiphy.done(function(data) { console.log("success got data", data); });

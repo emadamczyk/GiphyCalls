@@ -18,3 +18,19 @@ body {
 .gifs {
     background-color: lightgoldenrodyellow;
 }
+
+.gifBorder {
+    border: solid 1px #4aaaa5;
+    margin: 5px;
+}
+
+.gifView {
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.rating {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0 5px;
+    text-align: center;
+}
