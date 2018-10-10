@@ -8,7 +8,7 @@ function displayGifs() {
   var resultNumber = 10;
   console.log(gifs);
   var queryURL =
-    "http://api.giphy.com/v1/gifs/search?q=" +
+    "https://api.giphy.com/v1/gifs/search?q=" +
     gifs +
     "&api_key=r5ZdfHEr7DRl96jWYp47eXbkjeMiiH8f&limit=" +
     resultNumber;
